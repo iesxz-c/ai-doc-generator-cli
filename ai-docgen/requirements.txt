@@ -1,0 +1,23 @@
+# --- LLM (Gemini) ---
+google-genai
+
+# --- Static analysis & parsing ---
+tree-sitter
+tree-sitter-python
+tree-sitter-javascript
+tree-sitter-typescript
+tree_sitter_languages
+
+# --- Git integration ---
+GitPython
+
+# --- HTTP & API utils ---
+requests
+
+# Markdown / diagram generation
+markdown
+graphviz==0.20.3
+
+# Utilities
+pyyaml
+rich
