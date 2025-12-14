@@ -1,4 +1,4 @@
-# AI-Enhanced Code Documentation Generator – Intelligent Code Documentation Generator
+# Code Documentation Generator – Intelligent Code Documentation Generator
 
 Automatically generate comprehensive, AI-powered technical documentation for Python, JavaScript, and TypeScript codebases. **AI DocGen** parses your code, analyzes git history, builds knowledge graphs, and generates beautifully formatted Markdown documentation with intelligent summaries, line-by-line explanations, dry runs, and execution traces.
 
