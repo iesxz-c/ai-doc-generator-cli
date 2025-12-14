@@ -221,27 +221,29 @@ Output: Browser shows "Hello, World!" at http://127.0.0.1:3000/
 
 ## Summaries
 ### Architecture
+```mermaid
 graph TD
     n_2_py[2.py]
     n_2_py_func_three_sum["three_sum()"]
     n_5_py[5.py]
     n_5_py_func_home["home()"]
+```
 
 ### Files
-2.py (imports: 0, funcs: 1, classes: 0)
-5.py (imports: 1, funcs: 2, classes: 0)
-sample.py (imports: 0, funcs: 1, classes: 1)
-index.js (imports: 0, funcs: 1, classes: 0)
+- 2.py (imports: 0, funcs: 1, classes: 0)
+- 5.py (imports: 1, funcs: 2, classes: 0)
+- sample.py (imports: 0, funcs: 1, classes: 1)
+- index.js (imports: 0, funcs: 1, classes: 0)
 
 ### Functions
-three_sum in 2.py: args=['nums'] doc=None
-home in 5.py: args=[] doc=None
-greet in 5.py: args=[] doc=None
-twoSum in sample.py: args=['self', 'nums', 'target'] doc=:type nums: List[int]
-:type target: int
+- three_sum in 2.py: args=['nums'] doc=None
+- home in 5.py: args=[] doc=None
+- greet in 5.py: args=[] doc=None
+- twoSum in sample.py: args=['self', 'nums', 'target'] doc=:type nums: List[int]
+- :type target: int
 
 ### Changes
-Unable to generate summary (no content).
+- Unable to generate summary (no content).
 
 ### Gitignore
 No .gitignore present.

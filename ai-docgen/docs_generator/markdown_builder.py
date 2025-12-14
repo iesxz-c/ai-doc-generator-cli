@@ -104,20 +104,53 @@ class MarkdownBuilder:
 			lines.append("")
 
 		lines.append("## Summaries")
+		
 		lines.append("### Architecture")
-		lines.append(summaries.get("Architecture", ""))
+		arch_summary = summaries.get("Architecture", "")
+		if arch_summary and "graph TD" in arch_summary:
+			# If it contains Mermaid code, wrap it
+			lines.append("```mermaid")
+			lines.append(arch_summary)
+			lines.append("```")
+		else:
+			lines.append(arch_summary if arch_summary else "No architecture summary available.")
 		lines.append("")
+		
 		lines.append("### Files")
-		lines.append(summaries.get("Files", ""))
+		files_summary = summaries.get("Files", "")
+		if files_summary:
+			# Format as a proper list
+			for line in files_summary.split("\n"):
+				if line.strip():
+					lines.append(f"- {line.strip()}")
+		else:
+			lines.append("No file summary available.")
 		lines.append("")
+		
 		lines.append("### Functions")
-		lines.append(summaries.get("Functions", ""))
+		funcs_summary = summaries.get("Functions", "")
+		if funcs_summary:
+			# Format as a proper list with better structure
+			for line in funcs_summary.split("\n"):
+				if line.strip():
+					lines.append(f"- {line.strip()}")
+		else:
+			lines.append("No function summary available.")
 		lines.append("")
+		
 		lines.append("### Changes")
-		lines.append(summaries.get("Changes", ""))
+		changes_summary = summaries.get("Changes", "")
+		if changes_summary:
+			for line in changes_summary.split("\n"):
+				if line.strip():
+					lines.append(f"- {line.strip()}")
+		else:
+			lines.append("No recent changes summary available.")
 		lines.append("")
+		
 		lines.append("### Gitignore")
-		lines.append(summaries.get("Gitignore", ""))
+		gitignore_summary = summaries.get("Gitignore", "")
+		lines.append(gitignore_summary if gitignore_summary else "No .gitignore summary available.")
 		lines.append("")
 
 		lines.append("## Git Insights")
