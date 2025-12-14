@@ -137,16 +137,16 @@ def build_per_file_workflows(parsed_files: List[dict]) -> List[dict]:
 		# Escape label if it has special chars
 		if any(c in file_label for c in "()[]{}"):
 			file_label = f'"{file_label}"'
-		lines = ["flowchart TD", f"    {file_id}[{file_label}]"]
+		lines = ["flowchart TD", f"    {file_id}[\"{file_label}\"]"]
 		for fn in info.get("functions", []):
 			fn_id = sanitize(f"{info.get('file','')}::{fn.get('name')}")
-			fn_label = f"{fn.get('name')}()"
-			lines.append(f"    {fn_id}[{fn_label}]")
+			fn_label = f'{fn.get("name")}()'
+			lines.append(f'    {fn_id}["{fn_label}"]')
 			lines.append(f"    {file_id} --> {fn_id}")
 		for cls in info.get("classes", []):
 			cls_id = sanitize(f"{info.get('file','')}::class::{cls.get('name')}")
 			cls_label = f"class {cls.get('name')}"
-			lines.append(f"    {cls_id}[{cls_label}]")
+			lines.append(f'    {cls_id}["{cls_label}"]')
 			lines.append(f"    {file_id} --> {cls_id}")
 		workflows.append({"file": info.get("file", ""), "mermaid": "\n".join(lines)})
 	return workflows
