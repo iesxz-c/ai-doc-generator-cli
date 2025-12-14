@@ -17,13 +17,23 @@ class PythonParser(BaseParser):
 
     def __init__(self):
         self.parser = None
+        # Prefer stdlib AST unless a compatible tree-sitter binding is available.
         if get_ts_parser:
-            self.parser = get_ts_parser("python")
+            try:
+                # Some versions of tree_sitter_languages expect different init signatures;
+                # if it fails, fall back to stdlib AST.
+                self.parser = get_ts_parser("python")
+            except Exception:
+                self.parser = None
         else:
-            candidate = Parser()
-            if hasattr(candidate, "set_language"):
-                candidate.set_language(python_language())
-                self.parser = candidate
+            # Attempt to construct a generic tree-sitter parser if bindings are present.
+            try:
+                candidate = Parser()
+                if hasattr(candidate, "set_language"):
+                    candidate.set_language(python_language())
+                    self.parser = candidate
+            except Exception:
+                self.parser = None
 
     def extensions(self) -> List[str]:
         return [".py"]

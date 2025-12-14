@@ -21,17 +21,25 @@ class JavaScriptParser(BaseParser):
         self.ts_parser = None
 
         if get_ts_parser:
-            self.js_parser = get_ts_parser("javascript")
-            self.ts_parser = get_ts_parser("typescript")
+            try:
+                self.js_parser = get_ts_parser("javascript")
+                self.ts_parser = get_ts_parser("typescript")
+            except Exception:
+                self.js_parser = None
+                self.ts_parser = None
         else:
-            js_candidate = Parser()
-            ts_candidate = Parser()
-            if hasattr(js_candidate, "set_language"):
-                js_candidate.set_language(js_language())
-                self.js_parser = js_candidate
-            if hasattr(ts_candidate, "set_language"):
-                ts_candidate.set_language(ts_language())
-                self.ts_parser = ts_candidate
+            try:
+                js_candidate = Parser()
+                ts_candidate = Parser()
+                if hasattr(js_candidate, "set_language"):
+                    js_candidate.set_language(js_language())
+                    self.js_parser = js_candidate
+                if hasattr(ts_candidate, "set_language"):
+                    ts_candidate.set_language(ts_language())
+                    self.ts_parser = ts_candidate
+            except Exception:
+                self.js_parser = None
+                self.ts_parser = None
 
     def extensions(self) -> List[str]:
         return [".js", ".jsx", ".ts", ".tsx"]
