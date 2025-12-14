@@ -120,19 +120,33 @@ def build_run_instructions(parsed_files: List[dict]) -> List[dict]:
 def build_per_file_workflows(parsed_files: List[dict]) -> List[dict]:
 	"""Create simple Mermaid flows per file showing defined symbols."""
 	def sanitize(text: str) -> str:
-		return text.replace(" ", "_").replace("/", "_").replace("\\", "_")
+		"""Robust sanitization for Mermaid node IDs."""
+		import re
+		text = text.replace("::", "_").replace("/", "_").replace("\\", "_").replace(" ", "_").replace("-", "_")
+		# Remove non-alphanumeric chars except underscore
+		text = re.sub(r"[^a-zA-Z0-9_]", "_", text)
+		# Ensure it starts with a letter
+		if text and not text[0].isalpha():
+			text = "n_" + text
+		return text or "node"
 
 	workflows: List[dict] = []
 	for info in parsed_files:
 		file_id = sanitize(info.get("file", "file"))
-		lines = ["flowchart TD", f"    {file_id}[{info.get('file', '')}]"]
+		file_label = info.get("file", "file")
+		# Escape label if it has special chars
+		if any(c in file_label for c in "()[]{}"):
+			file_label = f'"{file_label}"'
+		lines = ["flowchart TD", f"    {file_id}[{file_label}]"]
 		for fn in info.get("functions", []):
 			fn_id = sanitize(f"{info.get('file','')}::{fn.get('name')}")
-			lines.append(f"    {fn_id}[{fn.get('name')}()]")
+			fn_label = f"{fn.get('name')}()"
+			lines.append(f"    {fn_id}[{fn_label}]")
 			lines.append(f"    {file_id} --> {fn_id}")
 		for cls in info.get("classes", []):
 			cls_id = sanitize(f"{info.get('file','')}::class::{cls.get('name')}")
-			lines.append(f"    {cls_id}[class {cls.get('name')}]")
+			cls_label = f"class {cls.get('name')}"
+			lines.append(f"    {cls_id}[{cls_label}]")
 			lines.append(f"    {file_id} --> {cls_id}")
 		workflows.append({"file": info.get("file", ""), "mermaid": "\n".join(lines)})
 	return workflows

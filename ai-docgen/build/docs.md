@@ -47,37 +47,37 @@ graph TD
 ### 2.py
 ```mermaid
 flowchart TD
-    2.py[2.py]
-    2.py::three_sum[three_sum()]
-    2.py --> 2.py::three_sum
+    n_2_py[2.py]
+    n_2_py_three_sum[three_sum()]
+    n_2_py --> n_2_py_three_sum
 ```
 
 ### 5.py
 ```mermaid
 flowchart TD
-    5.py[5.py]
-    5.py::home[home()]
-    5.py --> 5.py::home
-    5.py::greet[greet()]
-    5.py --> 5.py::greet
+    n_5_py[5.py]
+    n_5_py_home[home()]
+    n_5_py --> n_5_py_home
+    n_5_py_greet[greet()]
+    n_5_py --> n_5_py_greet
 ```
 
 ### sample.py
 ```mermaid
 flowchart TD
-    sample.py[sample.py]
-    sample.py::twoSum[twoSum()]
-    sample.py --> sample.py::twoSum
-    sample.py::class::Solution[class Solution]
-    sample.py --> sample.py::class::Solution
+    sample_py[sample.py]
+    sample_py_twoSum[twoSum()]
+    sample_py --> sample_py_twoSum
+    sample_py_class_Solution[class Solution]
+    sample_py --> sample_py_class_Solution
 ```
 
 ### index.js
 ```mermaid
 flowchart TD
-    index.js[index.js]
-    index.js::server[server()]
-    index.js --> index.js::server
+    index_js[index.js]
+    index_js_server[server()]
+    index_js --> index_js_server
 ```
 
 ## Modules
