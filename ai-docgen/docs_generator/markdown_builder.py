@@ -68,7 +68,10 @@ class MarkdownBuilder:
 					
 					if fp.get("line_by_line"):
 						lines.append("#### Line-by-Line Explanation")
-						lines.append(fp.get("line_by_line", ""))
+						# Split by newlines to preserve line breaks in markdown
+						for line_item in fp.get("line_by_line", "").split("\n"):
+							if line_item.strip():
+								lines.append(line_item)
 						lines.append("")
 					
 					if fp.get("dry_run"):
