@@ -88,16 +88,16 @@ Language: python
 This file contains utility functions: def three_sum(nums):. It provides helper methods for the application.
 
 #### Line-by-Line Explanation
-Line 2: Define function three_sum
-Line 4: Variable assignment - result = []
-Line 5: Loop iteration - for i in range(len(nums) - 2):
-Line 6: Conditional check - if i > 0 and nums[i] == nums[i - 1]:
-Line 8: Variable assignment - left, right = i + 1, len(nums) - 1
-Line 10: Variable assignment - total = nums[i] + nums[left] + nums[right]
-Line 11: Conditional check - if total < 0:
-Line 12: Variable assignment - left += 1
-Line 13: Conditional check - elif total > 0:
-Line 14: Variable assignment - right -= 1
+- Line 2: Define function three_sum
+- Line 4: Variable assignment - result = []
+- Line 5: Loop iteration - for i in range(len(nums) - 2):
+- Line 6: Conditional check - if i > 0 and nums[i] == nums[i - 1]:
+- Line 8: Variable assignment - left, right = i + 1, len(nums) - 1
+- Line 10: Variable assignment - total = nums[i] + nums[left] + nums[right]
+- Line 11: Conditional check - if total < 0:
+- Line 12: Variable assignment - left += 1
+- Line 13: Conditional check - elif total > 0:
+- Line 14: Variable assignment - right -= 1
 
 #### Dry Run / Execution Trace
 ```
@@ -120,15 +120,15 @@ Language: python
 This file contains utility functions: def home():, def greet():. It provides helper methods for the application.
 
 #### Line-by-Line Explanation
-Line 3: Variable assignment - app = Flask(__name__)
-Line 5: Define function home
-Line 6: Return statement - return render_template('index.html')
-Line 7: Variable assignment - @app.route('/greet',methods=['POST'])
-Line 8: Define function greet
-Line 9: Variable assignment - name = request.form.get('name')
-Line 10: Variable assignment - return render_template('greet.html',name=name)
-Line 11: Conditional check - if __name__ == '__main__':
-Line 12: Variable assignment - app.run(debug=True)
+- Line 3: Variable assignment - app = Flask(__name__)
+- Line 5: Define function home
+- Line 6: Return statement - return render_template('index.html')
+- Line 7: Variable assignment - @app.route('/greet',methods=['POST'])
+- Line 8: Define function greet
+- Line 9: Variable assignment - name = request.form.get('name')
+- Line 10: Variable assignment - return render_template('greet.html',name=name)
+- Line 11: Conditional check - if __name__ == '__main__':
+- Line 12: Variable assignment - app.run(debug=True)
 
 #### Dry Run / Execution Trace
 ```
@@ -152,14 +152,14 @@ Language: python
 This file implements a LeetCode-style solution for the two-sum problem. It contains a Solution class with a method that finds two numbers in a list that add up to a target value using a hash map for O(n) time complexity.
 
 #### Line-by-Line Explanation
-Line 1: Define class Solution
-Line 2: Define function twoSum
-Line 8: Variable assignment - d={}
-Line 9: Loop iteration - for i,j in enumerate(nums):
-Line 10: Variable assignment - k=target-j
-Line 11: Conditional check - if k in d:
-Line 12: Return statement - return [d[k],i]
-Line 14: Variable assignment - d[j]=i
+- Line 1: Define class Solution
+- Line 2: Define function twoSum
+- Line 8: Variable assignment - d={}
+- Line 9: Loop iteration - for i,j in enumerate(nums):
+- Line 10: Variable assignment - k=target-j
+- Line 11: Conditional check - if k in d:
+- Line 12: Return statement - return [d[k],i]
+- Line 14: Variable assignment - d[j]=i
 
 #### Dry Run / Execution Trace
 ```
@@ -190,12 +190,12 @@ Language: javascript
 This file sets up a web server. It creates an HTTP server that listens on a specified port and handles incoming requests, returning responses to clients.
 
 #### Line-by-Line Explanation
-Line 1: Import module - const http = require('node:http'); // Import the b
-Line 2: Declare variable hostname
-Line 3: Declare variable port
-Line 6: Declare variable server
-Line 11: Send response to client
-Line 15: Start server listening
+- Line 1: Import module - const http = require('node:http'); // Import the b
+- Line 2: Declare variable hostname
+- Line 3: Declare variable port
+- Line 6: Declare variable server
+- Line 11: Send response to client
+- Line 15: Start server listening
 
 #### Dry Run / Execution Trace
 ```
