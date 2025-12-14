@@ -9,23 +9,23 @@ Imports: 1
 ## Architecture Overview
 ```mermaid
 graph TD
-    2.py[2.py]
-    2.py_func_three_sum[three_sum()]
-    5.py[5.py]
-    5.py_func_home[home()]
-    5.py_func_greet[greet()]
-    sample.py[sample.py]
-    sample.py_func_twoSum[twoSum()]
-    sample.py_class_Solution[class Solution]
-    index.js[index.js]
-    index.js_func_server[server()]
-    2.py--defines-->2.py_func_three_sum
-    5.py--defines-->5.py_func_home
-    5.py--defines-->5.py_func_greet
-    5.py--imports-->from_flask_import_Flask,render_template,request
-    sample.py--defines-->sample.py_func_twoSum
-    sample.py--defines-->sample.py_class_Solution
-    index.js--defines-->index.js_func_server
+    n_2_py[2.py]
+    n_2_py_func_three_sum["three_sum()"]
+    n_5_py[5.py]
+    n_5_py_func_home["home()"]
+    n_5_py_func_greet["greet()"]
+    sample_py[sample.py]
+    sample_py_func_twoSum["twoSum()"]
+    sample_py_class_Solution[class Solution]
+    index_js[index.js]
+    index_js_func_server["server()"]
+    n_2_py--defines-->n_2_py_func_three_sum
+    n_5_py--defines-->n_5_py_func_home
+    n_5_py--defines-->n_5_py_func_greet
+    n_5_py--imports-->from_flask_import_Flask_render_template_request
+    sample_py--defines-->sample_py_func_twoSum
+    sample_py--defines-->sample_py_class_Solution
+    index_js--defines-->index_js_func_server
 ```
 
 ## Stats
@@ -222,10 +222,10 @@ Output: Browser shows "Hello, World!" at http://127.0.0.1:3000/
 ## Summaries
 ### Architecture
 graph TD
-    2.py[2.py]
-    2.py_func_three_sum[three_sum()]
-    5.py[5.py]
-    5.py_func_home[home()]
+    n_2_py[2.py]
+    n_2_py_func_three_sum["three_sum()"]
+    n_5_py[5.py]
+    n_5_py_func_home["home()"]
 
 ### Files
 2.py (imports: 0, funcs: 1, classes: 0)

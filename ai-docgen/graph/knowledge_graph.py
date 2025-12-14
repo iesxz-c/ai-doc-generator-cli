@@ -56,6 +56,9 @@ def to_mermaid(graph: Dict) -> str:
 	for node in graph.get("nodes", []):
 		nid = sanitize(node.get("id"))
 		label = node.get("label", node.get("id", ""))
+		# Escape label for Mermaid (wrap in quotes if it has special chars)
+		if any(c in label for c in "()[]{}"):
+			label = f'"{label}"'
 		lines.append(f"    {nid}[{label}]")
 
 	# Edges
@@ -70,4 +73,12 @@ def to_mermaid(graph: Dict) -> str:
 def sanitize(text: str) -> str:
 	if text is None:
 		return "unknown"
-	return text.replace("::", "_").replace("/", "_").replace("\\", "_").replace(" ", "_")
+	# Sanitize to valid Mermaid ID: alphanumeric + underscore, start with letter
+	import re
+	text = text.replace("::", "_").replace("/", "_").replace("\\", "_").replace(" ", "_").replace("-", "_")
+	# Remove non-alphanumeric chars except underscore
+	text = re.sub(r"[^a-zA-Z0-9_]", "_", text)
+	# Ensure it starts with a letter
+	if text and not text[0].isalpha():
+		text = "n_" + text
+	return text or "unknown"
